@@ -165,29 +165,29 @@
 
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
           // check if there is param with a name of paramId in formData and if it inculudes optionID //
-          if(optionSelected) {
-            // check if the option is not default //
-            if(!option.default == true) {
-              // add option price to price variable //
-              price += option.price;
-            }
-          } else {
-            // check if the option is default //
-            if(!option.default == false) {
-              // reduce price variable //
-              price -= option.price;
-            }
 
-            // find the picture in the class .paramId-optionId //
-            const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
-            console.log('optionIMAGE:', optionImage);
-            // check if the image was found //
-            if(optionImage) {
-              // if a photo is found, check if it is selected, if so, show the photo, if not, hide it //
-              if(optionSelected) {
-                optionImage.classList.add(classNames.menuProduct.imageVisible);
-              } else {
-                optionImage.classList.remove(classNames.menuProduct.imageVisible);
+          // find the picture in the class .paramId-optionId //
+          const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+          console.log('optionIMAGE:', optionImage);
+          // check if the image was found //
+          if(optionImage) {
+            // if a photo is found, check if it is selected, if so, show the photo, if not, hide it //
+            if(optionSelected) {
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
+            } else {
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+            if(optionSelected) {
+              // check if the option is not default //
+              if(!option.default == true) {
+                // add option price to price variable //
+                price += option.price;
+              }
+            } else {
+              // check if the option is default //
+              if(!option.default == false) {
+                // reduce price variable //
+                price -= option.price;
               }
             }
           }
