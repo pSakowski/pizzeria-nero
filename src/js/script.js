@@ -410,7 +410,7 @@
         console.log('REMOVE:', event.detail.cartProduct);
       });
 
-      thisCart.dom.form.addEventListener('sumbit', function(event){
+      thisCart.dom.form.addEventListener('submit', function(event){
         event.preventDefault();
         thisCart.sendOrder();
       });
