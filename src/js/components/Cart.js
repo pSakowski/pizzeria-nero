@@ -67,9 +67,8 @@ class Cart{
 
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
 
-    //console.log('THISCART.PRODUCTS', thisCart.products);
-    //console.log('ADDING PRODUICT', menuProduct);
-
+    //console.log('thisCart.products:', thisCart.products);
+    //console.log('adding product:', menuProduct);
     thisCart.update();
   }
 
@@ -89,12 +88,11 @@ class Cart{
     if(thisCart.subtotalPrice != 0){
       thisCart.totalPrice = thisCart.subtotalPrice + deliveryFee;
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
-    }
-    else {
+    } else {
       thisCart.totalPrice = 0;
       thisCart.dom.deliveryFee.innerHTML = 0;
     }
-
+    
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
     thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
     for (let item of thisCart.dom.totalPrice) {
