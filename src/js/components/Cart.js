@@ -76,6 +76,7 @@ class Cart{
     const thisCart = this;
 
     const deliveryFee = settings.cart.defaultDeliveryFee;
+    
     thisCart.totalNumber = 0;
     thisCart.subtotalPrice = 0;
     thisCart.totalPrice = 0;
@@ -95,6 +96,7 @@ class Cart{
     
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
     thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
+    
     for (let item of thisCart.dom.totalPrice) {
       item.innerHTML = thisCart.totalPrice;
     }
