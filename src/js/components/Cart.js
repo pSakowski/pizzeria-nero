@@ -96,6 +96,7 @@ class Cart{
     
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
     thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
+    thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
     
     for (let item of thisCart.dom.totalPrice) {
       item.innerHTML = thisCart.totalPrice;
@@ -144,9 +145,9 @@ class Cart{
       .then(function(response){
         return response.json();
       }).then(function(parsedResponse){
-        console.log('PARSEDRESPONSE:', parsedResponse);
+        console.log('parsedResponse:', parsedResponse);
       });
   }
 }
 
-export default Cart;
+export default Cart; 

@@ -18,10 +18,12 @@
           <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
+
         <div class="main-nav">
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
-      </div>
+        </div>
+
         <div id="cart" class="cart">
           <div class="cart__summary">
             <span class="cart__total-number">0</span>
@@ -131,7 +133,7 @@
                   <div class="checkbox checkbox--round"> <!-- radio -->
                     <label>
                       {{{ label }}} (${{{ price }}})
-                      <input type="radio" name="{{ paramId }}" value="{{ @key }}" id="{{ @key }}" {{#if default}}checked{{/if}}>
+                       <input type="radio" name="{{ paramId }}" value="{{ @key }}" id="{{ @key }}" {{#if default}}checked{{/if}}>
                       <span class="checkbox__checkmark"></span>
                     </label>
                   </div>
