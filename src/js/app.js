@@ -100,7 +100,7 @@ const app = {
       .then(function(parsedResponse){
         // save parsedResponse at thisApp.data.products
         thisApp.data.products = parsedResponse;
-        //console.log('PARSEDRESPONSE:', parsedResponse);
+        //console.log('parsedResponse:', parsedResponse);
         // execute initMenu method
         app.initMenu();
       });
