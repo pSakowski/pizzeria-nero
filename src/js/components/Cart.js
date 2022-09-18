@@ -80,27 +80,34 @@ class Cart{
     thisCart.totalNumber = 0;
     thisCart.subtotalPrice = 0;
     thisCart.totalPrice = 0;
+    
+    console.log(this.subtotalPrice);
 
     for(let product of thisCart.products){
       thisCart.totalNumber += product.amount;
       thisCart.subtotalPrice += product.price;
     }
+    console.log(this.subtotalPrice);
 
     if(thisCart.subtotalPrice != 0){
-      thisCart.totalPrice = thisCart.subtotalPrice + deliveryFee;
+      thisCart.totalPrice = thisCart.totalPrice + deliveryFee;
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
     } else {
       thisCart.totalPrice = 0;
       thisCart.dom.deliveryFee.innerHTML = 0;
     }
+    console.log(this.subtotalPrice);
     
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
     thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
+    thisCart.dom.deliveryFee.innerHTML = deliveryFee;
     thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
+    console.log(this.subtotalPrice);
     
     for (let item of thisCart.dom.totalPrice) {
       item.innerHTML = thisCart.totalPrice;
     }
+    //console.log(this.subtotalPrice);
   }
 
   remove(event){
