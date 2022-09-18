@@ -20,7 +20,7 @@ class Booking{
     const endDateParam = settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePickerElem.maxDate);
 
     const params = {
-      bookings : [
+      booking : [
         startDateParam,
         endDateParam,
       ],
@@ -37,23 +37,35 @@ class Booking{
 
     //console.log('getData params', params);
 
-    const url = {
-      bookings:       settings.db.url + '/' + settings.db.booking 
-                                     + '?' + params.bookings.join('&'),
+    const urls = {
+      booking:       settings.db.url + '/' + settings.db.booking 
+                                     + '?' + params.booking.join('&'),
       eventsCurrent: settings.db.url + '/' + settings.db.event   
                                      + '?' + params.eventsCurrent.join('&'),
       eventsRepeat:  settings.db.url + '/' + settings.db.event   
                                      + '?' + params.eventsRepeat.join('&'),
     };
+    // console.log('getData urls', urls);
 
-    //console.log('getData urls', urls);
-
-    fetch(url.bookings)
-      .then(function(bookingsResponse){
-        return bookingsResponse.json();
+    Promise.all([
+      fetch(urls.booking),
+      fetch(urls.eventsCurrent),
+      fetch(urls.eventsRepeat),
+    ])
+      .then(function(allResponses){
+        const bookingsResponse = allResponses[0];
+        const eventsCurrentResponse = allResponses[1];
+        const eventsRepeatResponse = allResponses[2];
+        return Promise.all([
+          bookingsResponse.json(),
+          eventsCurrentResponse.json(),
+          eventsRepeatResponse.json(),
+        ]);
       })
-      .then(function(bookings){
+      .then(function([bookings, eventsCurrent, eventsRepeat]){
         console.log(bookings);
+        console.log(eventsCurrent);
+        console.log(eventsRepeat);
       });
   }
 
