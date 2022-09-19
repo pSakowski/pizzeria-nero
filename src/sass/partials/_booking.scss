@@ -168,10 +168,15 @@
         height: 100%;
         left: 0;
         top: 0;
-        background: $color-dark;
+        background: red;
         opacity: 0.4;
       }
-
+    }
+    
+    &.selected {
+      background: greenyellow;
+      cursor: pointer;
+      color: lighten($color-dark, 40%);
     }
   }
 

@@ -56,7 +56,6 @@ class Product {
     /* START: add event listener to clickable trigger on event click */
     thisProduct.accordionTrigger.addEventListener('click', function(event) {
 
-
       /* prevent default action for event */
       event.preventDefault();
 
@@ -172,7 +171,7 @@ class Product {
     const event = new CustomEvent('add-to-cart', {
       bubbles: true,
       detail: {
-        product: thisProduct
+        product: thisProduct,
       },
     });
     

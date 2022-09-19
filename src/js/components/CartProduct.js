@@ -23,7 +23,7 @@ class CartProduct {
 
     thisCartProduct.dom = {
       wrapper: element,
-      amountWidgetElem: element.querySelector(select.cartProduct.amountWidget),
+      amountWidget: element.querySelector(select.cartProduct.amountWidget),
       price: element.querySelector(select.cartProduct.price),
       edit: element.querySelector(select.cartProduct.edit),
       remove: element.querySelector(select.cartProduct.remove),
@@ -33,12 +33,13 @@ class CartProduct {
   initAmountWidget(){
     const thisCartProduct = this;
 
-    thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidgetElem);
-    thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function(){
+    thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
+    thisCartProduct.dom.amountWidget.addEventListener('updated', function(){
       thisCartProduct.amount = thisCartProduct.amountWidget.value;
       thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
       thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
     });
+    console.log(thisCartProduct.price);
   }
 
   remove(){

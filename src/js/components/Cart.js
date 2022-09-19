@@ -90,7 +90,7 @@ class Cart{
     console.log(this.subtotalPrice);
 
     if(thisCart.subtotalPrice != 0){
-      thisCart.totalPrice = thisCart.totalPrice + deliveryFee;
+      thisCart.totalPrice = thisCart.subtotalPrice + deliveryFee;
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
     } else {
       thisCart.totalPrice = 0;
