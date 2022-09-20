@@ -11,6 +11,8 @@ class Booking{
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getDate();
+
+    thisBooking.starters = [];
   }
 
   getDate(){
@@ -171,10 +173,13 @@ class Booking{
 
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
 
+
     thisBooking.dom.floor = thisBooking.dom.wrapper.querySelector(select.booking.floor);
     thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.booking.phone);
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.booking.address);
     thisBooking.dom.form = thisBooking.dom.wrapper.querySelector(select.booking.form);
+    thisBooking.dom.submit = thisBooking.dom.wrapper.querySelector(select.booking.submit);
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelector(select.booking.starters);
   }
 
   initWidgets(){
@@ -193,6 +198,29 @@ class Booking{
     thisBooking.dom.floor.addEventListener('click', function(event){
       thisBooking.initTables(event);
     });
+
+    thisBooking.dom.submit.addEventListener('click', function (event) {
+      event.preventDefault();
+      thisBooking.sendBooking();
+    });
+
+    thisBooking.dom.form.addEventListener('submit', function(event){
+      event.preventDefault();
+      thisBooking.sendBooking();
+    });
+
+    thisBooking.dom.starters.addEventListener('click', function(event){
+      const starter = event.target;
+
+      if(starter.getAttribute('type') === 'checkbox' && starter.getAttribute('name') === 'starter'){
+        if(starter.checked){
+          thisBooking.starters.push(starter.value);          
+        } else if (!starter.checked){
+          const starterId = thisBooking.starters.indexOf(starter.value);
+          thisBooking.starters.splice(starterId, 1);
+        }        
+      }      
+    }); 
   }
 
   initTables(event) {
@@ -231,17 +259,13 @@ class Booking{
     const payload = {
       date: thisBooking.datePickerElem.value,    //data wybrana w datePickerze
       hour: thisBooking.hourPickerElem.value,    //godzina wybrana w hourPickerze (w formacie HH:ss)
-      table: thisBooking.tableId,                //numer wybranego stolika (lub null jeśli nic nie wybrano)
-      duration: thisBooking.hoursAmount,         //liczba godzin wybrana przez klienta
-      ppl: thisBooking.peopleAmount,             //liczba osób wybrana przez klienta
-      starters: [],
+      table: thisBooking.dom.tableIdAttribute,   //numer wybranego stolika (lub null jeśli nic nie wybrano)
+      duration: thisBooking.hoursAmount.value,   //liczba godzin wybrana przez klienta
+      ppl: thisBooking.peopleAmount.value,       //liczba osób wybrana przez klienta
+      starters: thisBooking.starters,            //tablica ['bread', 'water']
       phone: thisBooking.dom.phone.value,        //numer telefonu z formularza
       address: thisBooking.dom.address.value,    //adres z formularza
     };
-
-    for(let start of thisBooking.starters){
-      payload.products.push(start.getData());
-    }
 
     const options = {
       method: 'POST',
@@ -258,7 +282,6 @@ class Booking{
       .then(function(parsedResponse){
         console.log('parsedResponse:', parsedResponse);
       });
-    this.sendBooking();
   }
 }
 

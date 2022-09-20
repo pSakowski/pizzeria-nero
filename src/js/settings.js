@@ -48,6 +48,8 @@ export const select = {
     phone: '[name="phone"]',
     address: '[name="address"]', 
     form: '.booking-form',
+    submit: '.order-confirmation',
+    starters: '.starters',
   },
   nav: {
     links: '.main-nav a',
