@@ -11,7 +11,6 @@ class Booking{
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getDate();
-
     
     thisBooking.starters = [];
   }
@@ -190,6 +189,11 @@ class Booking{
     thisBooking.datePickerElem = new DatePicker(thisBooking.dom.datePickerInput); 
     thisBooking.hourPickerElem = new HourPicker(thisBooking.dom.hourPickerInput);
 
+    thisBooking.dom.wrapper.addEventListener('updated', function(){
+      thisBooking.selectedTable = null;
+      const tableSelected = thisBooking.dom.floor.querySelector(select.booking.tableSelected);
+      if (tableSelected) { tableSelected.classList.remove('selected'); }
+    });
 
     thisBooking.dom.floor.addEventListener('click', function(event){
       const clickedElement = event.target;
@@ -204,7 +208,6 @@ class Booking{
 
     thisBooking.dom.form.addEventListener('submit', function(event){
       event.preventDefault();
-      thisBooking.sendBooking();
     });
 
     thisBooking.dom.starters.addEventListener('click', function(event){
@@ -226,12 +229,6 @@ class Booking{
 
   initTables(clickedElement) {
     const thisBooking = this;
-
-    thisBooking.dom.wrapper.addEventListener('updated', function(){
-      thisBooking.selectedTable = null;
-      const tableSelected = thisBooking.dom.floor.querySelector(select.booking.tableSelected);
-      if (tableSelected) { tableSelected.classList.remove('selected'); }
-    });
     
     const tableId = clickedElement.getAttribute(settings.booking.tableIdAttribute);
 
@@ -281,7 +278,7 @@ class Booking{
       .then(function(parsedResponse){
         console.log('do api:', parsedResponse);
       });
-    thisBooking.updateDOM();
+    thisBooking.makedBooked(payload.date, payload.hour, payload.table, payload.duration);
   }
 }
 
