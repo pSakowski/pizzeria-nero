@@ -50,6 +50,8 @@ export const select = {
     form: '.booking-form',
     submit: '.order-confirmation',
     starters: '.starters',
+    tableSelected: '.table.selected',
+
   },
   nav: {
     links: '.main-nav a',
