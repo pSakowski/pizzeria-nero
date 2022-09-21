@@ -77,35 +77,104 @@
     </section>
   </div>
 
-  <script id="template-home" type="text/x-handlebars-template">
-    <li>
-      <div class="widget-amount">
-        <a class="btn-quantity btn-quantity--lt" href="#less"><i class="fas fa-minus"></i></a>
-        <input class="amount" type="text" value="{{ amount }}">
-        <a class="btn-quantity btn-quantity--lt" href="#more"><i class="fas fa-plus"></i></a>
+  <script id="template-home-widget" type="text/x-handlebars-template">
+    <div class="home">
+      <div class ="title">
+        <a href="#order">
+          <h3>ORDER ONLINE</h3>
+        </a>
       </div>
-      <div class="cart__product">
-        <div class="cart__product-header">
-          <span>{{ name }}</span>
-          <span>$<strong class="cart__product-price">{{ price }}</strong></span>
+      <div class ="title">
+        <a href="#booking">
+          <h3>BOOK A TABLE</h3>
+        </a>
+      </div>
+      <div>
+        <div class="center">
+          <h1>OPENING HOURS:</h1>
+          <p>TUE-SUN, 12PM-12AM</p>
         </div>
-        <ul class="cart__product-details no-spacing">
-          {{#each params}}
-            <li>
-              <span class="cart__product-details-label">{{ label }}</span>
-              <span>{{#joinValues options}}, {{/joinValues}}</span>
-            </li>
-          {{/each}}
-        </ul>
       </div>
-      <ul class="cart__action-buttons no-spacing">
-        <li><a href="#edit">Edit<i class="fas fa-pencil-alt"></i></a></li>
-        <li><a href="#remove">Remove<i class="fas fa-trash-alt"></i></a></li>
-      </ul>
-    </li>
+      <div>
+        <div>
+          <div>
+            <img src="images/assets/pizza-3.jpg">
+          </div>
+          <div>
+            <h4>AMAZING SERVICE!</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed dolor at elit lobortis sodales.</p>
+            <p><i>Margaret Osbrone</i></p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src="images/assets/pizza-1.jpg">
+          </div>
+          <div>
+            <h4>GOOD SNACKS</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed dolor at elit lobortis sodales.</p>
+            <p><i>Kaslik Amanow</i></p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src="images/assets/pizza-9.jpg">
+          </div>
+          <div>
+            <h4>GREAT VENUE</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed dolor at elit lobortis sodales.</p>
+            <p><i>Robert Bruce Banner</i></p>
+          </div>
+        </div>
+      </div>
+      <div class="gallery">
+        <div class="item">
+          <img src="./images/assets/pizza-4.jpg">
+          <ul class="like">
+            <li><a href="#"><i class="fas fa-heart"></i>Like</a></li>
+            <li><a href="#"><i class="fas fa-share-alt"></i>Share</a></li>
+          </ul>
+        </div>
+        <div class="item">
+          <img src="./images/assets/pizza-5.jpg">
+          <ul class="like">
+            <li><a href="#"><i class="fas fa-heart"></i>Like</a></li>
+            <li><a href="#"><i class="fas fa-share-alt"></i>Share</a></li>
+          </ul>
+        </div>
+        <div class="item">
+          <img src="./images/assets/pizza-6.jpg">
+          <ul class="like">
+            <li><a href="#"><i class="fas fa-heart"></i>Like</a></li>
+            <li><a href="#"><i class="fas fa-share-alt"></i>Share</a></li>
+          </ul>
+        </div>
+        <div class="item">
+          <img src="./images/assets/pizza-7.jpg">
+          <ul class="like">
+            <li><a href="#"><i class="fas fa-heart"></i>Like</a></li>
+            <li><a href="#"><i class="fas fa-share-alt"></i>Share</a></li>
+          </ul>
+        </div>
+        <div class="item">
+          <img src="./images/assets/pizza-8.jpg">
+          <ul class="like">
+            <li><a href="#"><i class="fas fa-heart"></i>Like</a></li>
+            <li><a href="#"><i class="fas fa-share-alt"></i>Share</a></li>
+          </ul>
+        </div>
+        <div class="item">
+          <img src="./images/assets/pizza-9.jpg">
+          <ul class="like">
+            <li><a href="#"><i class="fas fa-heart"></i>Like</a></li>
+            <li><a href="#"><i class="fas fa-share-alt"></i>Share</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </script>
 
-    <script id="template-cart-product" type="text/x-handlebars-template">
+  <script id="template-cart-product" type="text/x-handlebars-template">
       <li>
         <div class="widget-amount"> <!-- widget-amount -->
           <a class="btn-quantity btn-quantity--lt" href="#less"><i class="fas fa-minus"></i></a>
@@ -131,9 +200,9 @@
           <li><a href="#remove">Remove<i class="fas fa-trash-alt"></i></a></li>
         </ul>
       </li>
-    </script>
+  </script>
 
-    <script id="template-menu-product" type="text/x-handlebars-template">
+  <script id="template-menu-product" type="text/x-handlebars-template">
       <article class="product"> <!-- product -->
 
           <header class="product__header">
@@ -210,9 +279,9 @@
           </div>
 
       </article> <!-- .product -->
-    </script>
+  </script>
 
-    <script id="template-booking-widget" type="text/x-handlebars-template">
+  <script id="template-booking-widget" type="text/x-handlebars-template">
       <div class="booking-widget">
         <h2 class="page__title no-spacing">Book a table</h2>
         <form class="booking-form">
@@ -276,7 +345,7 @@
           </div>
         </form>
       </div>
-    </script>
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
