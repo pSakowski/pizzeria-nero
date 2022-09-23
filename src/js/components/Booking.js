@@ -279,6 +279,7 @@ class Booking{
         console.log('do api:', parsedResponse);
       });
     thisBooking.makedBooked(payload.date, payload.hour, payload.table, payload.duration);
+    thisBooking.updateDOM();
   }
 }
 
