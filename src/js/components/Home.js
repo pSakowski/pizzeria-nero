@@ -3,7 +3,7 @@ class Home{
   constructor(element){
     const thisHome = this;
     thisHome.render(element);
-    thisHome.initWidghet();
+    thisHome.initWidgets();
   }
 
   render(element){
@@ -14,7 +14,7 @@ class Home{
     thisHome.dom.wrapper.innerHTML = generatedHTML;
   }
 
-  initWidghet(){
+  initWidgets(){
     const elem = document.querySelector('.main-carousel');
 
     //eslint-disable-next-line no-undef
