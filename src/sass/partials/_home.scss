@@ -18,13 +18,13 @@
   width: 100%;
 
   h1 {
+    text-align: center;
     color: white;
     font-family: $font-header;
     margin: 0 auto;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
     transform: translate(-50%, -50%);
     transition: 0.3s;
   }
@@ -49,13 +49,13 @@
   width: 100%;
 
   h1 {
+    text-align: center;
     color: white;
     font-family: $font-header;
     margin: 0 auto;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
     transform: translate(-50%, -50%);
     transition: 0.3s;
   }
@@ -76,8 +76,10 @@
 }
 
 .open {
+  text-align: center;
   margin-top: 2px;
-  padding-top: 30px;
+  padding-top: 10px;
+  line-height: 25px;
   text-align: center;
   background-color: $color-main;
   color: white;
@@ -85,7 +87,6 @@
   height: 150px;
   border-radius: 4px;
   font-family: $font-header;
-  line-height: 5px;
 
   h1 {
     font-size: 25px;
@@ -124,47 +125,45 @@
 /* GALLERY */
 .gallery {
   padding-top: 100px;
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
 
 .gallery .item {
-  margin:0 auto;
-  display:block;
+  margin: -12px auto;
+  display: block;
 }
 
 .gallery .item img {
-  margin:0 auto;
-  display:block;
+  margin: 5px auto;
+  display: block;
   border-radius: 4px;
   object-fit: cover;
-  padding: 2px;
-  width: 160px;
+  padding: -10px;
+  width: 150px;
   height: 150px;
 }
 
 .gallery .item:hover::before {
-  position: absolute;
+  margin: 5px auto;
+  display: block;
   border-radius: 4px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 160px;
+  position: absolute;
+  width: 150px;
   height: 150px;
-  z-index: 1;
   background: $color-dark;
   opacity: 0.5;
   content: "";
+  // filter: blur(3px);
 }
 
-.gallery .item .like {
-  transform: translate(-50%);
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  left: 50%;
-  top: 55%;
+.gallery .like {
+  text-align: center;
+  position: relative;
+  color: $color-success;
+  font-size: 15px;
+  top: -50%;
   z-index: -1;
 
   i:hover {
@@ -181,9 +180,10 @@
 }
 
 .view {
-  padding-top: 20px;
   margin:0 auto;
+  display:block;
   color: $color-main;
+
 
   b:hover{
     color: red;
