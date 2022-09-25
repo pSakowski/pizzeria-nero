@@ -64,8 +64,10 @@ class Cart{
 
     /* add element to menu */
     thisCart.dom.productList.appendChild(generatedDOM);
-
-    thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+    // console.log(menuProduct);
+    if(menuProduct){
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+    }
 
     //console.log('thisCart.products:', thisCart.products);
     //console.log('adding product:', menuProduct);
