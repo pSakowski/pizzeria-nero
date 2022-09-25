@@ -107,7 +107,7 @@ class Cart{
     for (let item of thisCart.dom.totalPrice) {
       item.innerHTML = thisCart.totalPrice;
     }
-    //console.log(this.subtotalPrice);
+    console.log(this.subtotalPrice);
   }
 
   remove(event){
