@@ -13,7 +13,7 @@
         "test:html": "html-validate src/*.html",
         "test:js": "eslint src/js/",
         "test:scss": "stylelint src/sass/",
-        "build": "npm-run-all build:* test",
+        "build": "npm install && npm-run-all build:* test",
         "build:clean": "rimraf dist && mkdirp dist",
         "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
         "build:sass": "sass --style=compressed --no-source-map src/sass:dist/css",
