@@ -1,12 +1,12 @@
-import {  templates } from '../settings.js';
-class Home{
-  constructor(element){
+import { templates } from '../settings.js';
+class Home {
+  constructor(element) {
     const thisHome = this;
     thisHome.render(element);
     thisHome.initWidgets();
   }
 
-  render(element){
+  render(element) {
     const thisHome = this;
     const generatedHTML = templates.homeWidget();
     thisHome.dom = {};
@@ -14,11 +14,11 @@ class Home{
     thisHome.dom.wrapper.innerHTML = generatedHTML;
   }
 
-  initWidgets(){
+  initWidgets() {
     const elem = document.querySelector('.main-carousel');
 
     //eslint-disable-next-line no-undef
-    new Flickity (elem, {
+    new Flickity(elem, {
       //options
       cellAlign: 'left',
       contain: true,
